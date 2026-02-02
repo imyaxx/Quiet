@@ -2,6 +2,8 @@
 
 Calm, premium Pomodoro-style timer for deep work and recovery.
 
+**Live:** `quiet-one.vercel.app`
+
 ## Highlights
 - Three modes: Focus, Break, Deep Rest
 - Local persistence for settings and session history
