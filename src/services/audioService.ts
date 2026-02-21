@@ -3,6 +3,9 @@
  * Minimalist Audio Service using Web Audio API
  * Prevents reliance on external assets and ensures crisp, clean tones.
  */
+import { TONE_COMPLETION, TONE_START } from '../constants';
+import type { TonePreset } from '../constants';
+
 class AudioService {
   private ctx: AudioContext | null = null;
 
@@ -12,48 +15,34 @@ class AudioService {
     }
   }
 
-  playCompletion() {
+  private playTone(tone: TonePreset) {
     this.init();
     if (!this.ctx) return;
 
     const osc = this.ctx.createOscillator();
     const gain = this.ctx.createGain();
 
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(440, this.ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 0.1);
-    
+    osc.type = tone.waveform;
+    osc.frequency.setValueAtTime(tone.frequencyStart, this.ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(tone.frequencyEnd, this.ctx.currentTime + tone.frequencyRampDuration);
+
     gain.gain.setValueAtTime(0, this.ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.1, this.ctx.currentTime + 0.05);
-    gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.5);
+    gain.gain.linearRampToValueAtTime(tone.gainPeak, this.ctx.currentTime + tone.gainAttack);
+    gain.gain.exponentialRampToValueAtTime(tone.gainFloor, this.ctx.currentTime + tone.duration);
 
     osc.connect(gain);
     gain.connect(this.ctx.destination);
 
     osc.start();
-    osc.stop(this.ctx.currentTime + 0.5);
+    osc.stop(this.ctx.currentTime + tone.duration);
+  }
+
+  playCompletion() {
+    this.playTone(TONE_COMPLETION);
   }
 
   playStart() {
-    this.init();
-    if (!this.ctx) return;
-
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(220, this.ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(330, this.ctx.currentTime + 0.1);
-    
-    gain.gain.setValueAtTime(0, this.ctx.currentTime);
-    gain.gain.linearRampToValueAtTime(0.05, this.ctx.currentTime + 0.05);
-    gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.3);
-
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-
-    osc.start();
-    osc.stop(this.ctx.currentTime + 0.3);
+    this.playTone(TONE_START);
   }
 }
 

@@ -1,0 +1,116 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .container {
+    gap: 2rem;
+  }
+}
+
+.ctaButton {
+  width: 100%;
+  max-width: 24rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  letter-spacing: 0.2em;
+  transition: all 500ms;
+  box-shadow: var(--shadow-cta);
+  touch-action: manipulation;
+}
+
+@media (min-width: 768px) {
+  .ctaButton {
+    max-width: none;
+    width: auto;
+    padding: 1rem 4rem;
+  }
+}
+
+.ctaButton:hover {
+  box-shadow: var(--shadow-cta-hover);
+}
+
+.desktopActions {
+  display: none;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .desktopActions {
+    display: flex;
+  }
+}
+
+.secondaryButton {
+  color: currentColor;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.secondaryButton:hover {
+  opacity: 1;
+}
+
+.secondaryButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.mobileActions {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .mobileActions {
+    display: none;
+  }
+}
+
+.mobileButton {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 9999px;
+  color: currentColor;
+  opacity: 0.7;
+  background-color: var(--surface-muted);
+  transition: background-color 0.2s;
+  touch-action: manipulation;
+}
+
+.mobileButton:hover {
+  background-color: var(--surface-hover);
+}
+
+.mobileButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.instruction {
+  margin-top: 2rem;
+  transition: opacity 500ms;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .instruction {
+    margin-top: 6rem;
+  }
+}
+
+.instructionText {
+  color: currentColor;
+  opacity: 0.7;
+  max-width: 24rem;
+  margin: 0 auto;
+}

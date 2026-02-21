@@ -34,13 +34,18 @@ npm run preview
 ├── package-lock.json
 ├── public
 │   └── favicon.svg
+├── dist
 ├── tsconfig.json
 ├── vite.config.ts
 └── src
     ├── App.tsx
-    ├── constants.ts
     ├── index.tsx
     ├── types.ts
-    └── services
-        └── audioService.ts
+    ├── components/
+    ├── constants/
+    ├── hooks/
+    ├── services/
+    │   └── audioService.ts
+    ├── styles/
+    └── utils/
 ```

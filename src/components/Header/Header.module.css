@@ -1,0 +1,92 @@
+.header {
+  width: 100%;
+  max-width: 64rem;
+  padding: 1.5rem 1.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding-top: calc(env(safe-area-inset-top) + 24px);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding-top: calc(env(safe-area-inset-top) + 2.5rem);
+    padding-bottom: 2.5rem;
+  }
+}
+
+.headerGrid {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .headerGrid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: default;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  justify-self: start;
+}
+
+.logoDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--app-fg);
+  opacity: 0.7;
+}
+
+.logoText {
+  color: currentColor;
+  opacity: 0.7;
+  letter-spacing: 0.2em;
+}
+
+.rightSection {
+  display: contents;
+}
+
+@media (min-width: 1024px) {
+  .rightSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+}
+
+.settingsButton {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  justify-self: end;
+  padding: 1rem;
+  color: currentColor;
+  opacity: 0.6;
+  transition: opacity 0.2s, background-color 0.2s;
+  border-radius: 9999px;
+}
+
+.settingsButton:hover {
+  opacity: 1;
+  background-color: var(--surface-muted);
+}

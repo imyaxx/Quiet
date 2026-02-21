@@ -1,0 +1,57 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 1.5rem;
+  background-color: var(--surface-3);
+  padding: 1.5rem;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.label {
+  color: currentColor;
+  opacity: 0.7;
+}
+
+.description {
+  color: currentColor;
+  opacity: 0.6;
+}
+
+.toggle {
+  align-self: center;
+  width: 2.5rem;
+  height: 1.5rem;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: background-color 500ms;
+}
+
+.toggleOn {
+  background-color: var(--toggle-on);
+  border: 1px solid var(--toggle-border-on);
+}
+
+.toggleOff {
+  background-color: var(--toggle-off);
+  border: 1px solid var(--toggle-border-off);
+}
+
+.thumb {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 9999px;
+  background-color: var(--thumb);
+  box-shadow: var(--shadow-thumb);
+}

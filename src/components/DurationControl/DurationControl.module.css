@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  text-align: left;
+  color: currentColor;
+  opacity: 0.6;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stepButton {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-3);
+  color: currentColor;
+  opacity: 0.5;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.stepButton:hover {
+  opacity: 0.7;
+  background-color: var(--surface-2);
+}
+
+.stepButton:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.valueDisplay {
+  width: 4rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: var(--surface-muted);
+  color: currentColor;
+  opacity: 0.8;
+  font-size: 1.125rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

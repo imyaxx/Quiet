@@ -33,5 +33,4 @@ export interface UserConfig {
   breakDuration: number;
   deepRestDuration: number;
   soundEnabled: boolean;
-  autoStartNext: boolean;
 }

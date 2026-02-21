@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  margin-bottom: 2.5rem;
+  user-select: none;
+  cursor: default;
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-bottom: 5rem;
+  }
+}
+
+.modeLabel {
+  margin-bottom: 1.5rem;
+  color: currentColor;
+  opacity: 0.7;
+  letter-spacing: 0.3em;
+}
+
+.pausedIndicator {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: currentColor;
+  opacity: 0.6;
+  letter-spacing: 0.2em;
+}
