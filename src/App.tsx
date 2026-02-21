@@ -106,7 +106,7 @@ const App: React.FC = () => {
     const currentCycle = state.cycleCount;
 
     const entry: HistoryEntry = {
-      id: crypto.randomUUID(),
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2),
       mode: currentMode,
       startTime: Date.now() - state.totalDuration * 1000,
       durationMinutes: Math.floor(state.totalDuration / 60),
@@ -448,9 +448,9 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      <main className="flex-1 w-full max-w-2xl px-8 flex flex-col items-center text-center pt-28 pb-12 md:pt-0 md:pb-0 justify-between md:justify-center">
+      <main className="flex-1 w-full max-w-2xl px-8 flex flex-col items-center text-center pt-12 pb-8 md:pt-0 md:pb-0 justify-between md:justify-center">
         <div className="w-full flex flex-col items-center">
-          <div className="mb-10 md:mb-14 flex items-center space-x-4">
+          <div className="mb-6 md:mb-14 flex items-center space-x-4">
             {[1, 2, 3, 4].map((i) => (
               <motion.div
                 key={i}
@@ -476,7 +476,7 @@ const App: React.FC = () => {
           </motion.p>
 
           <div
-            className="relative mb-16 md:mb-20 select-none cursor-default group"
+            className="relative mb-10 md:mb-20 select-none cursor-default group"
             aria-live="polite"
           >
             <motion.h1
@@ -503,7 +503,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center space-y-8 w-full relative z-10">
+        <div className="flex flex-col items-center space-y-6 md:space-y-8 w-full relative z-10">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -529,7 +529,7 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex md:hidden w-full gap-4 pointer-events-auto">
+          <div className="flex md:hidden w-full gap-4">
             <button
               onClick={resetTimer}
               disabled={state.status === SessionStatus.IDLE}
@@ -556,8 +556,8 @@ const App: React.FC = () => {
         </motion.div>
       </main>
 
-      <footer className="w-full max-w-5xl px-6 md:px-8 py-16">
-        <div className="border-t border-[color:var(--divider)] mb-12" />
+      <footer className="w-full max-w-5xl px-6 md:px-8 py-10 md:py-16">
+        <div className="border-t border-[color:var(--divider)] mb-8 md:mb-12" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start md:items-end">
           <div className="space-y-4">
             <div className="type-small text-current/60 tracking-[0.2em] md:tracking-[0.3em]">
